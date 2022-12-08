@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<h1>Marvel list</h1>
+
+<button><a href="{% url 'marvel_create' %}">Add character</a></button>
+
+
+<div class="center">
+  {% for marvel in object_list %}
+  <div class="card">
+    <img src="{{marvel.image}}"  alt="{{marvel.character}} " >
+    <div class="container">
+    <h5><b>{{marvel.character}}</b></h5> 
+
+        <p>          
+            <button><a href= "{% url 'marvel_detail' marvel.pk %}"> more details </a></button>
+            <button><a href="{% url 'marvel_update' marvel.pk %}">Update</a></button>
+            <button><a href="{% url 'marvel_delete' marvel.pk %}">delete</a></button>
+        </p> 
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock content %}
