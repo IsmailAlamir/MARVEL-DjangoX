@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<h2>Details about {{ marvel.character }}</h2>
+
+
+<div class="center">
+    <div class="card">
+      <img src="{{marvel.image}}"  alt="{{marvel.character}} " >
+      <div class="container">
+      <h5><b>{{marvel.character}}</b></h5> 
+      <h3>{{ marvel.description }}</h3>
+
+          <p>          
+            <button>    <a href="{% url 'marvel_list' %}">back</a>    </button>
+            <button><a href="{% url 'marvel_update' marvel.pk %}">Update</a></button>
+              <button><a href="{% url 'marvel_delete' marvel.pk %}">delete</a></button>
+          </p> 
+      </div>
+  </div>
+  
+
+
+
+
+{% endblock content %}
+
